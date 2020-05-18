@@ -1,0 +1,7 @@
+{
+  "name": "algolia-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
