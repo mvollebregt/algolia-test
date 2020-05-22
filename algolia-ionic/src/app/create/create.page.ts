@@ -1,30 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormControl} from '@angular/forms';
 import {EventService} from '../data/event.service';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html'
 })
-export class CreatePage implements OnInit {
+export class CreatePage {
 
-  eventForm: FormGroup;
+  formControl = new FormControl();
 
-  constructor(private fb: FormBuilder, private eventService: EventService) {
-  }
-
-  ngOnInit() {
-    this.eventForm = this.fb.group({
-      name: ['', Validators.required],
-      date: [undefined, Validators.required],
-      description: ['']
-    });
+  constructor(private eventService: EventService) {
   }
 
   onSubmit() {
-    if (this.eventForm.valid) {
-      this.eventService.create(this.eventForm.value).subscribe(
-        () => this.eventForm.reset()
+    if (this.formControl.valid) {
+      this.eventService.create(this.formControl.value).subscribe(
+        () => this.formControl.reset()
       );
     }
   }

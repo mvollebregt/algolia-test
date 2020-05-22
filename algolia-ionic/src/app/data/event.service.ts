@@ -18,4 +18,8 @@ export class EventService {
   create(event: Event): Observable<DocumentReference> {
     return fromPromise(this.eventsCollection.add(event));
   }
+
+  get(id: string): Observable<Event> {
+    return this.eventsCollection.doc<Event>(id).valueChanges();
+  }
 }

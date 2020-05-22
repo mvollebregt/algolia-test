@@ -1,10 +1,6 @@
 import {Component} from '@angular/core';
-import * as algoliasearch from 'algoliasearch/lite';
-
-const searchClient = algoliasearch(
-  'VVWED74WIF',
-  '541e494d7bf250c3ff3bfbecbcf45459'
-);
+import {AlgoliaSearchService} from './algolia-search.service';
+import {Event} from '../data/event';
 
 @Component({
   selector: 'app-search',
@@ -12,9 +8,13 @@ const searchClient = algoliasearch(
 })
 export class SearchPage {
 
-  config = {
-    indexName: 'test',
-    searchClient
-  };
+  results: Event[];
+
+  constructor(private searchService: AlgoliaSearchService) {
+  }
+
+  onSearchTermChange(event: CustomEvent) {
+    this.searchService.search(event.detail.value).subscribe(searchResponse => this.results = searchResponse.hits);
+  }
 
 }

@@ -1,0 +1,18 @@
+<ion-list [formGroup]="eventForm">
+  <ion-item>
+    <ion-label position="stacked">Evenement
+      <ion-text *ngIf="!readonly" color="danger">*</ion-text>
+    </ion-label>
+    <ion-input [readonly]="readonly" formControlName="name" required type="text" (ionFocus)="onTouched()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Datum
+      <ion-text *ngIf="!readonly" color="danger">*</ion-text>
+    </ion-label>
+    <ion-input [readonly]="readonly" formControlName="date" required type="date" (ionFocus)="onTouched()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Omschrijving</ion-label>
+    <ion-textarea [readonly]="readonly" formControlName="description" auto-grow (ionFocus)="onTouched()"></ion-textarea>
+  </ion-item>
+</ion-list>

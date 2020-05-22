@@ -6,26 +6,8 @@
 
 <ion-content>
 
-  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="stacked">Evenement
-          <ion-text color="danger">*</ion-text>
-        </ion-label>
-        <ion-input formControlName="name" required type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Datum
-          <ion-text color="danger">*</ion-text>
-        </ion-label>
-        <ion-input formControlName="date" required type="date"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Omschrijving</ion-label>
-        <ion-textarea formControlName="description" auto-grow></ion-textarea>
-      </ion-item>
-    </ion-list>
-    <ion-button type="submit">Opslaan</ion-button>
+  <form (ngSubmit)="onSubmit()">
+    <app-event-detail [formControl]="formControl"></app-event-detail>
   </form>
 
 </ion-content>

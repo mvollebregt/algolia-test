@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {CreatePageRoutingModule} from './create-routing.module';
+import {ViewPageRoutingModule} from './view-routing.module';
 
-import {CreatePage} from './create.page';
+import {ViewPage} from './view.page';
 import {EventDetailModule} from '../shared/event-detail/event-detail.module';
 
 @NgModule({
@@ -14,11 +14,10 @@ import {EventDetailModule} from '../shared/event-detail/event-detail.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreatePageRoutingModule,
-    ReactiveFormsModule,
+    ViewPageRoutingModule,
     EventDetailModule
   ],
-  declarations: [CreatePage]
+  declarations: [ViewPage]
 })
-export class CreatePageModule {
+export class ViewPageModule {
 }
