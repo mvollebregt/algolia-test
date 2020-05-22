@@ -13,11 +13,8 @@ export class AppComponent {
 
   selectedIndex = 0;
   appPages = [
-    {
-      title: 'Create',
-      url: '/create',
-      icon: 'create'
-    }
+    {title: 'Create', url: '/create', icon: 'create'},
+    {title: 'Search', url: '/search', icon: 'search'}
   ];
 
   constructor(

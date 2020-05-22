@@ -11,6 +11,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {NgAisModule} from 'angular-instantsearch';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgAisModule.forRoot()
   ],
   providers: [
     StatusBar,
