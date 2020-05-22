@@ -38,7 +38,11 @@ export class EventDetailComponent implements OnChanges, ControlValueAccessor, Va
     this.eventForm = fb.group({
       name: ['', Validators.required],
       date: [undefined, Validators.required],
-      description: ['']
+      description: [''],
+      _geoloc: fb.group({
+        lat: [''],
+        lng: ['']
+      })
     });
   }
 
@@ -59,7 +63,7 @@ export class EventDetailComponent implements OnChanges, ControlValueAccessor, Va
 
   writeValue(obj: any): void {
     if (obj) {
-      this.eventForm.setValue(obj);
+      this.eventForm.setValue({_geoloc: {lat: '', lng: ''}, ...obj});
     } else {
       this.eventForm.reset();
     }

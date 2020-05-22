@@ -3,4 +3,8 @@ export interface Event {
   name: string;
   date: string;
   description: string;
+  _geoloc: {
+    lat: number,
+    lng: number
+  }
 }

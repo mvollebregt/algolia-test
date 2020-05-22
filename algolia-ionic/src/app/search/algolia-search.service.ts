@@ -15,7 +15,12 @@ export class AlgoliaSearchService {
     this.index = client.initIndex('test');
   }
 
-  search(query: string) {
-    return fromPromise(this.index.search<Event>(query));
+  search(query: string, aroundLatLngViaIP = false) {
+    return fromPromise(
+      this.index.search<Event>(query, {
+        aroundLatLngViaIP,
+        aroundRadius: 10000
+      })
+    );
   }
 }
